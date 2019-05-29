@@ -142,14 +142,40 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\RouteConfig2.cs" />
     <Compile Include="Connected Services\Group3ServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\MessageServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UserLoginServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UserProfileServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\UserProfileController.cs" />
+    <Compile Include="Models\CreateAccountViewModel.cs" />
+    <Compile Include="Models\EditProfileViewModel.cs" />
+    <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\UpdateProfileViewModel.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -157,8 +183,74 @@
     <Compile Include="Models\CreateServiceObject.cs" />
     <Compile Include="Models\EditServiceObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SessionHandler\CustomAuthorization.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Connected Services\MessageServiceReference\finder_ui.MessageServiceReference.Messageinfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\MessageServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\MessageServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\MessageServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\MessageServiceReference\service11.disco" />
+    <Content Include="Connected Services\UserLoginServiceReference\finder_ui.UserLoginServiceReference.ReturnUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UserLoginServiceReference\finder_ui.UserLoginServiceReference.InterfaceFlaggedUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UserLoginServiceReference\finder_ui.UserLoginServiceReference.InterfaceUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Group3ServiceReference\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\UserLoginServiceReference\finder_ui.UserLoginServiceReference.InterfaceAdmin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\UserLoginServiceReference\finder_ui.UserLoginServiceReference.InterfaceBlockedUser.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\MessageServiceReference\Service11.wsdl" />
+    <None Include="Connected Services\MessageServiceReference\service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MessageServiceReference\service131.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MessageServiceReference\service132.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserLoginServiceReference\LoginService.disco" />
+    <None Include="Connected Services\UserLoginServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\UserLoginServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\UserLoginServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\UserProfileServiceReference\finder_ui.UserProfileServiceReference.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\UserLoginServiceReference\LoginService.wsdl" />
+    <None Include="Connected Services\UserLoginServiceReference\LoginService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserLoginServiceReference\LoginService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserLoginServiceReference\LoginService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserProfileServiceReference\configuration91.svcinfo" />
+    <None Include="Connected Services\UserProfileServiceReference\configuration.svcinfo" />
+    <None Include="Connected Services\UserProfileServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\UserProfileServiceReference\UserProfileService.disco" />
     <Content Include="Connected Services\Group3ServiceReference\finder_ui.Group3ServiceReference.Service.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -186,6 +278,9 @@
     </None>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\findericon.png" />
+    <Content Include="Content\Images\finderlogo.png" />
+    <Content Include="Content\Images\User.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -195,6 +290,16 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Connected Services\UserProfileServiceReference\UserProfileService.wsdl" />
+    <None Include="Connected Services\UserProfileServiceReference\UserProfileService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserProfileServiceReference\UserProfileService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UserProfileServiceReference\UserProfileService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\Group3ServiceReference\Service1.wsdl" />
     <None Include="Connected Services\Group3ServiceReference\Service1.xsd">
       <SubType>Designer</SubType>
@@ -216,7 +321,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -230,10 +337,19 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\UpdateUserProfile.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\UserProfile\EditProfile.cshtml" />
+    <Content Include="Views\UserProfile\Index.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
     <Content Include="Views\Service\Create.cshtml" />
     <Content Include="Views\Service\Delete.cshtml" />
     <Content Include="Views\Service\Edit.cshtml" />
+    <Content Include="Views\Message\Index.cshtml" />
+    <Content Include="Views\Message\Message.cshtml" />
+    <Content Include="Views\Message\Searching.cshtml" />
+    <Content Include="Views\Message\Kontrakt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -255,6 +371,9 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\MessageServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\UserLoginServiceReference\" />
+    <WCFMetadataStorage Include="Connected Services\UserProfileServiceReference\" />
     <WCFMetadataStorage Include="Connected Services\Group3ServiceReference\" />
   </ItemGroup>
   <PropertyGroup>
